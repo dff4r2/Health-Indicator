@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "healthindicator",
+  "version": "${version}",
+  "name": "Health Indicator",
+  "description": "Shows health bars above mobs and players, plus a HUD display for the entity you look at. Press H to toggle.",
+  "authors": ["You"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.healthindicator.HealthIndicatorClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

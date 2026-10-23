@@ -1,0 +1,6 @@
+{
+  "key.healthindicator.toggle": "Toggle Health Indicator",
+  "category.healthindicator": "Health Indicator",
+  "message.healthindicator.on": "Health Indicator: ON",
+  "message.healthindicator.off": "Health Indicator: OFF"
+}
