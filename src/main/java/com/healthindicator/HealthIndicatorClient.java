@@ -98,7 +98,7 @@ public class HealthIndicatorClient implements ClientModInitializer {
 			matrices.push();
 			matrices.translate(x, y, z);
 			matrices.multiply(camera.getRotation());
-			matrices.scale(-0.025f, -0.025f, 0.025f);
+			matrices.scale(-0.03f, -0.03f, 0.03f);
 
 			Matrix4f matrix = matrices.peek().getPositionMatrix();
 			float width = textRenderer.getWidth(line);
@@ -133,7 +133,8 @@ public class HealthIndicatorClient implements ClientModInitializer {
 
 		MutableText bar = Text.literal("|".repeat(filled)).formatted(color);
 		bar.append(Text.literal("|".repeat(BAR_SEGMENTS - filled)).formatted(Formatting.DARK_GRAY));
-		bar.append(Text.literal(" " + format(health) + "/" + format(max)).formatted(Formatting.WHITE));
+		// 1 heart = 2 health points
+		bar.append(Text.literal(" ♥ " + format(health / 2f) + "/" + format(max / 2f)).formatted(Formatting.RED));
 		return bar;
 	}
 
@@ -172,9 +173,10 @@ public class HealthIndicatorClient implements ClientModInitializer {
 		// fill
 		drawContext.fill(x, y, x + Math.round(barWidth * ratio), y + barHeight, barColor);
 
-		String label = format(health) + " / " + format(max);
+		// 1 heart = 2 health points
+		String label = "♥ " + format(health / 2f) + " / " + format(max / 2f);
 		float absorption = target.getAbsorptionAmount();
-		if (absorption > 0f) label += " (+" + format(absorption) + ")";
+		if (absorption > 0f) label += " (+" + format(absorption / 2f) + ")";
 		drawContext.drawCenteredTextWithShadow(tr, label, screenWidth / 2, y + barHeight + 3, 0xFFFFFFFF);
 	}
 
