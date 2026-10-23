@@ -3,17 +3,22 @@
   "id": "healthindicator",
   "version": "${version}",
   "name": "Health Indicator",
-  "description": "Shows health bars above mobs and players, plus a HUD display for the entity you look at. Press H to toggle.",
+  "description": "Vanilla-style hearts above players and mobs, a target panel, damage numbers and a full settings screen (Mod Menu).",
   "authors": ["You"],
   "license": "MIT",
   "environment": "client",
   "entrypoints": {
-    "client": ["com.healthindicator.HealthIndicatorClient"]
+    "client": ["com.healthindicator.HealthIndicatorClient"],
+    "modmenu": ["com.healthindicator.ModMenuIntegration"]
   },
   "depends": {
     "fabricloader": ">=0.16.0",
     "minecraft": "~1.21.1",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "cloth-config": ">=15.0.0"
+  },
+  "suggests": {
+    "modmenu": "*"
   }
 }
